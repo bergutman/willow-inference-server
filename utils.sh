@@ -186,7 +186,7 @@ gen_cert() {
     # Remove old wis certs if present
     if [ -r cert.pem ] || [ -r key.pem ]; then
         echo "Removing old WIS certificate - enter password when prompted"
-        sudo rm -f key.pem cert.pem
+        rm -f key.pem cert.pem
     fi
 
     openssl req -x509 -newkey rsa:2048 -keyout nginx/key.pem -out nginx/cert.pem -sha256 -days 3650 \
@@ -241,17 +241,17 @@ download_models() {
 }
 
 clean_cache() {
-    sudo rm -rf nginx/cache cache/huggingface
+    rm -rf nginx/cache cache/huggingface
 }
 
 clean_models() {
-    sudo rm -rf models/*
+    rm -rf models/*
 }
 
 case $1 in
 
 download-models)
-    sudo rm -rf models
+    rm -rf models
     download_models
 ;;
 
