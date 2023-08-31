@@ -1070,16 +1070,16 @@ def shutdown_event():
 
 
 # Mount static dir to serve files for WebRTC client
-app.mount("/rtc", StaticFiles(directory="/app/nginx/static/rtc", html=True), name="rtc_files")
+app.mount("/rtc", StaticFiles(directory="./nginx/static/rtc", html=True), name="rtc_files")
 
 # Mount static dir to serve files for dictation client
-app.mount("/dict", StaticFiles(directory="/app/nginx/static/dict", html=True), name="dict_files")
+app.mount("/dict", StaticFiles(directory="./nginx/static/dict", html=True), name="dict_files")
 
 # Mount static dir to serve files for chatbot client
-app.mount("/chatbot", StaticFiles(directory="/app/nginx/static/chatbot", html=True), name="chatbot_files")
+app.mount("/chatbot", StaticFiles(directory="./nginx/static/chatbot", html=True), name="chatbot_files")
 
 # Expose audio mount in the event willow is configured to save
-app.mount("/audio", StaticFiles(directory="/app/nginx/static/audio", html=True), name="audio_files")
+app.mount("/audio", StaticFiles(directory="./nginx/static/audio", html=True), name="audio_files")
 
 
 class Ping(BaseModel):
